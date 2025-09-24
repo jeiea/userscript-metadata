@@ -52,14 +52,14 @@ Deno.test("sort well-known keys", () => {
     result,
     `// ==UserScript==
 // @name           a
-// @version        d
 // @description    c
 // @description:en c
-// @icon           d
+// @version        d
 // @author         f
 // @namespace      e
 // @homepage       g
 // @supportURL     i
+// @icon           d
 // @grant          GM_getValue
 // @require        a
 // @resource       a b

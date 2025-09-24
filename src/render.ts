@@ -46,9 +46,8 @@ function* headerToRows(header: Metadata) {
 function compareEntry(a: readonly [string, string], b: readonly [string, string]) {
   const orderedKeys = [
     "@name",
-    "@version",
     "@description",
-    "@icon",
+    "@version",
     "@author",
     "@namespace",
     "",
@@ -65,11 +64,16 @@ function compareEntry(a: readonly [string, string], b: readonly [string, string]
   const [nameB, ...restB] = segmentsB;
   const pA = orderedKeys.indexOf(nameA!);
   const pB = orderedKeys.indexOf(nameB!);
-  const defaultOrder = 6;
+  const defaultOrder = 5;
   const orderA = pA === -1 ? defaultOrder : pA;
   const orderB = pB === -1 ? defaultOrder : pB;
   if (orderA !== orderB) {
     return orderA - orderB;
+  }
+
+  if (nameA !== nameB) {
+    // keep the original minor order
+    return 0;
   }
 
   const tagComparison = compareStringArray(restA, restB);
