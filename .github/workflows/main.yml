@@ -29,7 +29,11 @@ jobs:
           VERSION=$(deno eval 'console.info(JSON.parse(Deno.readTextFileSync("deno.json")).version)')
           TAG="v$VERSION"
           echo "Version: $VERSION"
+
+          git config user.name "${{ github.event.pusher.name }}"
+          git config user.email "${{ github.event.pusher.email }}"
           git fetch --unshallow --tags
+
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists. Skipping."
           else
