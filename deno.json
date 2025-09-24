@@ -16,7 +16,7 @@
     "fmt": "deno fmt --check",
     "lint": "deno lint",
     "check": "deno check",
-    "test": "deno test --allow-all",
+    "test": "deno test --doc --allow-all",
     "publish:check": "deno publish --dry-run",
     "publish:check-dirty": "deno publish --dry-run --allow-dirty"
   },
